@@ -99,7 +99,7 @@ The following commands can be used for displaying images
 2.  Try displaying the images read in the previous point using both commands
 3.  What are the differences?
 
-    > "imshow" displays the image I where I is a grayscale, RGB (truecolor), or binary image. While "image" creates an image graphics object by interpreting each element in a matrix as an index into the figure's colormap or directly as RGB values. With "image", the figure have matrix scale.
+    > "imshow" displays the image "I" where "I" is a grayscale, RGB (truecolor), or binary image. While "image" creates an image graphics object by interpreting each element in a matrix as an index into the figure's colormap or directly as RGB values. With "image", the figure have matrix scale. I think image could be use better in
 
 ## Writing Images
 
@@ -109,8 +109,8 @@ The [imwrite](http://www.mathworks.com/help/matlab/ref/imwrite.html) image is us
 2.  Write one of the images from before as png and as jpg
 3.  Write a matlab function that takes the path of an image and converts it to jpg
 
->> maca= imread ('/home/vision/misc/4.2.03.tiff')
->> imwrite(maca,'maca.jpg')
+> >> maca= imread ('/home/vision/misc/4.2.03.tiff')
+> >> imwrite(maca,'maca.jpg')
 
 ## Matlab and the shell
 
