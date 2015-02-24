@@ -99,7 +99,7 @@ The following commands can be used for displaying images
 2.  Try displaying the images read in the previous point using both commands
 3.  What are the differences?
 
-    > "imshow" displays the image "I" where "I" is a grayscale, RGB (truecolor), or binary image. While "image" creates an image graphics object by interpreting each element in a matrix as an index into the figure's colormap or directly as RGB values. With "image", the figure have matrix scale. I think image could be use better in
+    > "imshow" displays the image I where I is a grayscale, RGB (truecolor), or binary image. While "image" creates an image graphics object by interpreting each element in a matrix as an index into the figure's colormap or directly as RGB values. With "image", the figure have matrix scale. I think "image" could be use to represens simulation results or physical variables like force, a velocity field, etc and "imshow" is specialized in grayscale, RGB and binary images.
 
 ## Writing Images
 
@@ -109,8 +109,8 @@ The [imwrite](http://www.mathworks.com/help/matlab/ref/imwrite.html) image is us
 2.  Write one of the images from before as png and as jpg
 3.  Write a matlab function that takes the path of an image and converts it to jpg
 
-> >> maca= imread ('/home/vision/misc/4.2.03.tiff')
-> >> imwrite(maca,'maca.jpg')
+>> maca= imread ('/home/vision/misc/4.2.03.tiff')
+>> imwrite(maca,'maca.jpg')
 
 ## Matlab and the shell
 
@@ -142,6 +142,11 @@ If the command or script doesn't end in ``exit`` the matlab shell will stay open
     -   Or both
 2.  Save this script in the matlab lab folder of your git repository
 
+    > First, an matlab script that reads the name of all the images in directory "misc" and convert each one in jpeg images was created. After, A bash script that could be executed from shell was implemented. This one, executes matlab since shell and calls the .m script thus converting all images in the "misc" folder.
+
+    >Both files "con_im_bash.sh" and "converter.m" were uploaded in this git repository.
+
+
 ## Filters
 
 ### Adding noise
@@ -153,7 +158,7 @@ We can do this to simulate difficult capture conditions, and evaluate the algori
 2.  Try the diffente noise types, and save the noisy images to the repository (5 images)
 3.  Try saving noisy images as jpg, what happens?
 
-    > Answer
+    > Saving noisy images as jpg, changes hue/color of image.changes Making certain types of noise (eg salt and pepper , Gaussian and speckle) to be attenuated in some amount in JPG image noise.
 
 ### Median filter
 
@@ -167,7 +172,7 @@ These filters can be applied to a an image in order to remove noise.
 3.  Try different sizes for the filters
 4.  Which filter works best for salt & pepper noise?
 
-    > Answer
+    > The median filter, works best for salt & pepper noise because in each mask removes maximum values of black and white and replaces them with the median.
 
 For more on noise removal read http://www.mathworks.com/help/images/noise-removal.html
 
@@ -180,7 +185,7 @@ which can be otained from [fspecial](http://www.mathworks.com/help/images/ref/fs
 2.  Try different sizes for the filters
 3.  What differences do you notice?
 
-    > Answer
+    > With average I can see a smoothed image than with a gaussian filter. Changing the var in this last one could see a more smooth image.
 
 ### Sharpen
 
@@ -188,11 +193,11 @@ The [imsharpen](http://www.mathworks.com/help/images/ref/imsharpen.html) functio
 
 1.  Sharp the ``5.1.12`` image. What do you notice?
 
-    > Answer
+    > You can see a more defined Edges.
 
 2.  Sharp a blurred image. What do you notice?
 
-    > Answer
+    > imsharpen intensify the blue and red edges.
 
 ### Edge detection
 
@@ -207,7 +212,7 @@ Notice that the last two filters detect horizontal edges, in order to detect ver
 1.  Try applying this filters
 2.  What is the difference between prewitt and sobel?
 
-    > Answer
+    > I think that "sobel" could perform a better deteccion of horizontal edges than prewitt.
 
 More sophisticated methods for finding edges can be found in the following pages
     -   http://www.mathworks.com/discovery/edge-detection.html
@@ -262,11 +267,11 @@ The [impyramid](http://www.mathworks.com/help/images/ref/impyramid.html) functio
 2.  Create a four level pyramid from the ``5.1.12`` clock  image
 3.  At what level does the people in the picture dissappear?
 
-    >   Answer
+    >   At level 2, you can't distinct people in the picture.
     
 4.  At what level does the numbers in the clock disappear?
 
-    >   Answer
+    >   At level 2, you can't see the numbers in the clock.
 
 ## Template Matching
 
@@ -306,13 +311,13 @@ The [norm2corrx](http://www.mathworks.com/help/images/ref/normxcorr2.htm) can be
     ```
 6.  Explain what the above code does
 
-    > Answer
+    > That code, defines a normal correlation between image and mask. Then sets the size of image and mask , bringing latter to the nearest integer below. After, remove and accentuate edges to make it the same size as image and convert the mask in a 0 - 1 scale. Finally, converts the original image as the luminance chanel (gray), creates an empty cb channel and joint this 3 channels that together will be brighter in template area.
     
 7.  Now lets find the train in the next frame, read image ``motion05.512.tiff``.
 8.  Apply the procedure written above to it (use the train template from the past frame)
 9.  What are the limitations of this method?
 
-    > Answer
+    > The limitations are that scaling and rotation could cause poor matches, and that we assumpt in the begining that the template is located inside the image.
 
 See [here](http://www.mathworks.com/help/images/examples/registering-an-image-using-normalized-cross-correlation.html)
 another example.
@@ -320,3 +325,5 @@ another example.
 ## End
 
 Don't forget to commit and push your answers and images to github
+
+**DUE**: 24/02/2015 ; 8:00 a.m.
